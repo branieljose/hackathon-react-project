@@ -14,4 +14,4 @@ You can find links to create-react-app & mongoose cli below:
 4. npm start
 5. cd into client
 6. npm start
-7. Check localhost:3000 in browser
+7. Check localhost:8080 in browser
