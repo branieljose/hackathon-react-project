@@ -20,7 +20,6 @@ class App extends Component {
     let i = 0;
     let len = data.length;
     while(i < len && data[i] !== input){
-
       if(data[i].first.indexOf(lowercase)>=0){
             response.push(data[i]);
       }else if(data[i].last.indexOf(lowercase)>=0){
@@ -43,7 +42,11 @@ class App extends Component {
               <div className="col-lg-12 col-md-12 col-sm-12 header-container">
                 <h1>JS Experts</h1>
               </div>
-              <nav className="navbar navbar-toggleable-md navbar-light bg-faded"></nav>
+              <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
+                <div className="col-lg-6 col-md-12 col-sm-12 offset-md-3 offset-lg-3 offset-sm-3 expert-addition">
+                    Add an expert
+                </div>
+              </nav>
               <div className="col-lg-6 col-md-12 col-sm-12 offset-md-3 offset-lg-3 offset-sm-3 space-top">
                     <form>
                     <div className="form-group">

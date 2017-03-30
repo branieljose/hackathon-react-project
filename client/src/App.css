@@ -65,3 +65,9 @@ background-image: radial-gradient(ellipse farthest-corner at center, #6F5580 0%,
   width:20%;
   margin-left:1%;
 }
+.expert-addition{
+  text-align:center;
+  color: white;
+  font-size:2vw;
+  text-decoration:underline;
+}
