@@ -19,6 +19,6 @@ You can find links to create-react-app & mongoose cli below:
 
 ### Mongoose Model details
 ```
-mongoimport --db expert --collection expert data.json --jsonArray
-
 mongoose generate model expert first:string last:string position:string img:string linkedin:string github:string twitter:string bio:string
+
+mongoimport --db expert --collection expert data.json --jsonArray
