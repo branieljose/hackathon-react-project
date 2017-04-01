@@ -55,6 +55,11 @@ class App extends Component {
                     </form>
                     <Expert expert={this.state.expert}/>
               </div>
+              <footer className="footer">
+                  <div className="container">
+                    <span className="text-muted">Peter F. Tumulty 2017</span>
+                  </div>
+              </footer>
           </div>
       </div>
     );
