@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import LinkedIn from '../img/linkedin.png';
 import Github from '../img/github.png';
+import Twitter from '../img/twitter.png';
 
 class Experts extends Component {
   editExcerpt(data){
@@ -17,7 +18,7 @@ class Experts extends Component {
                   <div className="card-block">
                   <img src={expert.img} alt={expert.position} className="img-thumbnail custom-sizing"/>
                   <p className="card-text card-spacing">{this.editExcerpt(expert.bio)}</p>
-                  <p className="social-section"><a href={expert.linkedin} target="_blank"><img src={LinkedIn} alt="linkedin logo"/></a> <a href={expert.github} target="_blank"><img src={Github} alt="github logo"/></a></p>
+                  <p className="social-section"><a href={expert.linkedin} target="_blank"><img src={LinkedIn} alt="linkedin logo"/></a> <a href={expert.github} target="_blank"><img src={Github} alt="github logo"/></a> <a href={expert.twitter} target="_blank"><img src={Twitter} alt="twitter logo"/></a></p>
                   </div>
             </div>
          </div>
