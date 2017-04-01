@@ -17,8 +17,10 @@ You can find links to create-react-app & mongoose cli below:
 7. Check localhost:3000 in browser
 ```
 
-### Mongoose Model details
+### Mongoose Model set up directions
 ```
+mongoose init
+
 mongoose generate model expert first:string last:string position:string img:string linkedin:string github:string twitter:string bio:string
 
 mongoimport --db expert --collection expert data.json --jsonArray
