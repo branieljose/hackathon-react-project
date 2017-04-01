@@ -1,5 +1,5 @@
 var express = require('express');
-var Data = require('./models/Data.js')["Data"];
+var Expert = require('./models/Expert.js');
 var app = express();
 
 app.all('*',function(req, res, next){
@@ -12,25 +12,20 @@ app.all('*',function(req, res, next){
 
 app.get('/data', function (req, res) {
   //res.sendFile('data.json', {root: __dirname })
-  Data.find({}).exec(function(err, data){
-       if(err){
-         console.log(err);
-      }
-      else{
-        console.log("Success..")
-          res.send(data);
-        }
-    });
-
-  //  Data.find().then(function(err,data) {
-  //    console.log(data);
-  //  });
+  Expert.find({}, function(err, docs) {
+    if (!err){
+        console.log("hello", docs);
+        res.send(docs);
+    } else {throw err;}
+  });
 });
 
 // POST method route
 app.post('/data', function (req, res) {
   res.sendFile('data.json', {root: __dirname })
 });
+
+
 
 console.log("hello world!");
 app.listen(8080);
