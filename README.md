@@ -23,4 +23,6 @@ mongoose init
 
 mongoose generate model expert first:string last:string position:string img:string linkedin:string github:string twitter:string bio:string
 
-mongoimport --db expert --collection expert data.json --jsonArray
+update seedfile.js to utilize data.json
+
+mongoose seed

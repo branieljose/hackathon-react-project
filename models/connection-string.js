@@ -6,7 +6,7 @@
 
 var url = require('url')
 
-var uri = 'mongodb://127.0.0.1:27017/expert';
+var uri = '';
 if (!uri) {
   throw new Error(
     '\033[31mYou need to provide the connection string. ' +
@@ -23,4 +23,3 @@ if (!uriObj.host || !uriObj.path) {
 }
 
 module.exports = uri;
-
