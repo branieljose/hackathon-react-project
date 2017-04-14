@@ -44,7 +44,6 @@ class App extends Component {
               </div>
               <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
                 <div className="col-lg-6 col-md-12 col-sm-12 offset-md-3 offset-lg-3 offset-sm-3 expert-addition">
-                    Add an expert
                 </div>
               </nav>
               <div className="col-lg-6 col-md-12 col-sm-12 offset-md-3 offset-lg-3 offset-sm-3 space-top">

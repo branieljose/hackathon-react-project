@@ -14,5 +14,9 @@
     "express": "^4.15.2",
     "mongoose": "^4.9.2",
     "react-router": "^4.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-plugin-react": "^6.10.3"
   }
 }

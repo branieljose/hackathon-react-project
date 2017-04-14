@@ -1,0 +1,141 @@
+#Welcome
+
+-- Today we will be using Create React App & Mongoose Model CLI for rapid
+prototyping. In other words, we are going to build a modern javascript
+application with almost no set up.
+
+With Create React App we will provide our view (client)
+With Mongoose Model Cli we will create a model for our data (model)
+With Express we will create our controllers
+
+1. First we will download create react app if you haven't already npm install -g create-react-app
+
+2. Second we will download mongoose model cli npm install -g mongoose-model-cli
+
+3. We create a new directory and then run create-react-app client
+
+4. Inside App.js all the HTML & replace it with this :
+
+<div className="App">
+    <div className="row">
+        <div className="col-lg-12 col-md-12 col-sm-12 header-container">
+          <h1>JS Experts</h1>
+        </div>
+        <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
+          <div className="col-lg-6 col-md-12 col-sm-12 offset-md-3 offset-lg-3 offset-sm-3 expert-addition">
+          </div>
+        </nav>
+        <div className="col-lg-6 col-md-12 col-sm-12 offset-md-3 offset-lg-3 offset-sm-3 space-top">
+              <form>
+              <div className="form-group">
+                  <input type="text" className="form-control" placeholder="Search expert by name" onChange={this.handleChange.bind(this)}/>
+              </div>
+              </form>
+              <Expert expert={this.state.expert}/>
+        </div>
+        <footer className="footer">
+            <div className="container">
+              <span className="text-muted">Peter F. Tumulty 2017</span>
+            </div>
+        </footer>
+    </div>
+</div>
+
+5. Then we add these CDNS to public/index.html
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&amp;subset=devanagari,latin-ext" rel="stylesheet">
+
+
+ 6. Then we create helper.js and install axios npm install axios --save & create a route
+
+ 7. Then we cd out of the client and install express route that will grab data from data.json and
+ create a server as well. Our route will look like this
+
+ app.get('/data', function (req, res) {
+   res.sendFile('data.json', {root: __dirname })
+ });
+
+
+ 8. Then we cd back into client and make sure they are all connected, by import helper from './helper.js'; and using componentWillMount(){
+   helper.getData().then((data)=>{
+     console.log(data)
+   });
+ }
+
+ 9. If that works then we set up Components folder with Experts.js inside.
+
+ 10. Then we load the img folder I created  with social media icons in and import it and then I connect App.js &
+ Experts.js using <Expert expert={this.state.expert}/> and set up where the data from our helper function is set
+ to state expert then we pass it through to the Component.
+
+ 11. Once we get the data into Expert then we loop through it
+
+ editExcerpt(data){
+     const excerpt = data;
+     const length = 240;
+     return excerpt.substring(0, length) + " ...";
+ }
+ renderExperts(){
+   return this.props.expert.map((expert, index)=>{
+       return (
+         <div key={index}>
+             <div className="card card-space">
+                 <h3 className="card-header">{expert.first} {expert.last} - {expert.position}</h3>
+                 <div className="card-block">
+                 <img src={expert.img} alt={expert.position} className="img-thumbnail custom-sizing"/>
+                 <p className="card-text card-spacing">{this.editExcerpt(expert.bio)}</p>
+                 <p className="social-section"><a href={expert.linkedin} target="_blank"><img src={LinkedIn} alt="linkedin logo"/></a> <a href={expert.github} target="_blank"><img src={Github} alt="github logo"/></a> <a href={expert.twitter} target="_blank"><img src={Twitter} alt="twitter logo"/></a></p>
+                 </div>
+           </div>
+        </div>
+      );
+   });
+ }
+ render() {
+   return (
+     <div className="Expert">
+         {this.renderExperts()}
+     </div>
+   );
+ }
+}
+
+12. Before we check it out I load the CSS in there after that we run our app and it should be working.
+
+13. Next we add some additional functionality with the search feature First we set up a handleChange function
+that will take in data from our copy of expert state called fulllist and then modify it with a while loop
+and then set that out put to the expert state.
+
+14. We are basically done with the client
+
+15. Now we need to get rid of data.json and change it to use Mongo DB
+
+16. We start the server mongod
+
+17. Run these commands
+
+mongoose init
+
+mongoose generate model experts first:string last:string position:string img:string linkedin:string github:string twitter:string bio:string
+
+update seedfile.js to utilize data.json
+
+mongoose seed
+
+18. Then replace our  res.sendFile('data.json', {root: __dirname }) in our route with this
+
+
+app.get('/data', function (req, res) {
+
+Expert.find({}, function(err, docs) {
+  if (!err){
+      res.send(docs);
+  } else {throw err;}
+});
+
+
+});
+
+
+19. Test and if all is well we are good to go :)
