@@ -23,6 +23,8 @@ mongoose init
 
 mongoose generate model expert first:string last:string position:string img:string linkedin:string github:string twitter:string bio:string
 
+update url string in connection file
+
 update seedfile.js to utilize data.json
 
 mongoose seed
